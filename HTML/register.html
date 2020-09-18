@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Styling/stylesheet.css" />
+    <title>Home</title>
+</head>
+
+<body class="body1">
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <img src="../Images/graduationCap.jpg" alt="logo" />
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="register.html">Register</a></li>
+                <li><a class="nav-link" href="#">Sign In</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form method="POST" action="../JavaScript/register.js">
+        <h1>Register</h1>
+        <div class="form-app">
+            First Name: <input type="text" id="form-text" placeholder="Enter First Name" name="first" required /><br />
+            Last Name: <input type="text" id="form-text" placeholder="Enter Last Name" name="last" required /><br />
+            Middle Name: <input type="text" id="form-text" placeholder="Enter Middle Name" name="middle" /><br />
+            Username: <input type="text" id="form-text" placeholder="Enter Username" name="username" required /><br />
+            Password: <input type="password" id="form-text" minlength="8" placeholder="Enter Password" name="password"
+                required /><br />
+            Email: <input type="email" id="form-text" placeholder="Enter Email" name="email" required /><br />
+            Gender:<br>
+            <input type="radio" id="form-text" name="gender" required />Male<br />
+            <input type="radio" id="form-text" name="gender" required />Female<br />
+            <input type="radio" id="form-text" name="gender" required />Other<br />
+            DOB: <input type="date" id="form-text" name="DOB" required /><br />
+            <input type="submit" value="Register" class="reg-button" />
+            <input type="Reset" class="reg-button" /><br>
+            <p id="end-text"> Already have an account?<a href="login.html">Sign in</a></p>
+        </div>
+    </form>
+</body>
+
+</html>
