@@ -10,12 +10,12 @@
 	margin: 10px;
 	margin-left: 50px;
 	margin-right: 50px;
+	border-radius: 25px;
 }
 
 .text {
 	font-style: italic;
 	font-size: 50px;
-	color: white;
 	text-align: center;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	padding: 10px;
@@ -24,7 +24,7 @@
 header {
 	display: flex;
 	padding: 5px;
-	background-color: rgba(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.8);
 	align-items: center;
 }
 
@@ -37,6 +37,7 @@ header {
 	flex: 1;
 }
 
+/* Background Image */
 .body1 {
 	background-image: url(../Styling/Images/students.jpg);
 	background-repeat: no-repeat;
@@ -60,29 +61,70 @@ header {
 	margin-right: 10px;
 }
 
+.nav-link:hover{
+	color:greenyellow;
+}
+
 .mail-form {
 	font-size: 25px;
 	color: black;
 	border: 10px solid pink;
 }
 
+/* Registration Form */
 .form-app {
 	color: black;
-	padding: 5px;
-	background-color: white;
+	padding: 10px;
+	background-color: rgba(0, 255, 255, 0.562);
 	font-size: 20px;
 	font-family: Arial;
 	margin: 10px;
 	margin-left: 50px;
 	margin-right: 50px;
-	border: solid 2px black;
+	border-radius: 30px;
+/*	text-align: center;*/
 }
 
 .form-text {
 	margin: 5px;
-	align-items: center;
 }
 
 #end-text{
 	margin-top: 20px;
+}
+/* Flash Message */
+.alert-success{
+	background-color: rgb(174, 255, 174);
+	color: green;
+	font-size: 25px;
+	text-align: center;
+	margin: 20px;
+	border-radius: 10px;
+}
+
+.reg-button{
+	border-radius: 20px;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 15px;
+	color: white;
+	background-color: rgba(0, 0, 205, 0.7);
+	border: none;
+	outline:none;
+}
+
+.reset-button{
+	border-radius: 20px;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 15px;
+	color: white;
+	background-color: rgba(255, 69, 0, 0.7);
+	border: none;
+	outline:none;
+}
+
+.clickLink{
+	text-decoration:none;
+	color: rgb(192, 80, 80);
 }

@@ -1,22 +1,19 @@
 let router = require('express').Router();
-let path = require("path");
-
-//Each route opens the different html files in the HTML folder
 
 router.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "../../HTML/index.html"));
+	res.render('index');
 });
 
 router.get("/contact", (req, res) => {
-	res.sendFile(path.join(__dirname, "../../HTML/contact.html"));
+	res.render('contact');
 });
 
 router.get("/register", (req, res) => {
-	res.sendFile(path.join(__dirname, "../../HTML/register.html"));
+	res.render('register');
 });
 
 router.get("/login", (req, res) => {
-	res.sendFile(path.join(__dirname, "../../HTML/login.html"));
+	res.render('login');
 });
 
 module.exports = router;

@@ -36,12 +36,17 @@
 				Password:
 				<input type="password" class="form-text" minlength="8" placeholder="Enter Password" name="password" required/><br />
 				
-				<input type="submit" value="Sign in" class="reg-button" /> <br />
+				<input type="submit" value="Sign in" class="reg-button" id="button1" onmouseover="myButton()"/> <br />
 
                 <p id="end-text">
-					Do Not Have An Account?<a href="register.html">Click Here</a> To Register
+					Do Not Have An Account? <a href="register" class='clickLink'>Click Here</a> To Register
 				</p>
 			</div>
 		</form>
 	</body>
+	<script>
+		function myButton(){
+			document.getElementById("button1").style.cursor="pointer";
+		}
+	</script>
 </html>
