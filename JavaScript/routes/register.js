@@ -8,7 +8,11 @@ let path = require('path');
 let bcrypt = require('bcrypt');
 
 router.use(cookieParser('secret'));
-router.use(session({cookie:{maxAge:60000}}));
+router.use(session({
+	cookie:{maxAge:60000},
+	resave: false,
+	saveUninitialized:false
+}));
 router.use(flash());
 
 router.use(bodyParser.urlencoded({extended: false,}));
