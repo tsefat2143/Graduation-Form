@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="../Styling/stylesheet.css" />
+		<title>Login Page</title>
+	</head>
+
+	<body class="body1">
+		<header>
+			<div class="container">
+				<a href="/">
+					<img src="../Styling/Images/graduationCap.jpg" alt="logo" />
+				</a>
+			</div>
+			<nav>
+				<ul class="nav-links">
+					<li><a class="nav-link" href="/">Home</a></li>
+					<li><a class="nav-link" href="register">Register</a></li>
+					<li><a class="nav-link" href="login">Sign In</a></li>
+					<li><a class="nav-link" href="contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<p id='header-message'></p>
+
+		<form method="GET" action="../JavaScript/database.js">
+			<div class="form-app">
+				<h1>Log In To Your Account </h1>
+				
+				Username:
+				<input type="text" class="form-text" placeholder="Enter Username" name="username" required/><br />
+				
+				Password:
+				<input type="password" class="form-text" minlength="8" placeholder="Enter Password" name="password" required/><br />
+				
+				<input type="submit" value="Sign in" class="reg-button" id="button1" onmouseover="myButton()"/> <br />
+
+                <p id="end-text">
+					Do Not Have An Account? <a href="register" class='clickLink'>Click Here</a> To Register
+				</p>
+			</div>
+		</form>
+	</body>
+	<script>
+		function myButton(){
+			document.getElementById("button1").style.cursor="pointer";
+		}
+	</script>
+</html>
