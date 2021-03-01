@@ -1,7 +1,16 @@
 let router = require("express").Router();
 let bodyParser = require("body-parser");
-let path = require('path');
 let database = require('../database');
+let session = require('express-session');
+let bcrypt = require('bcrypt')
+require("dotenv").config();
+
+router.use(session({
+    secret:process.env.LSESSION_SECRET,
+	cookie:{maxAge:60000},
+	resave: false,
+	saveUninitialized:false
+}))
 
 router.use(bodyParser.urlencoded({extended: false,}));
 router.use(bodyParser.json());
@@ -10,7 +19,28 @@ router.post("/login", (req, res) => {
 	let username = req.body.username;
     let password = req.body.password;
 
-    let sql = `Select * From graduation.graduates Where username = '${username}' AND passwords = '${password}';`;
-});
+    let sql = `Select firstName, lastName, username, passwords From graduation.graduates Where username = '${username}';`;
+
+     database.query(sql,async(error,result) =>{
+        if(error) throw error;
+
+        if(result.length !==0){
+        try {
+            if(await bcrypt.compare(password,result[0]['passwords'])){
+                res.send("Login Successful")
+            }
+            else{
+                res.send("Login Failed")
+            }
+            console.log(result[0]['passwords']);
+        } catch (error) {
+            
+        }
+    }
+    else{
+        res.send('User does not exist');
+    }
+    }) 
+})
 
 module.exports = router;

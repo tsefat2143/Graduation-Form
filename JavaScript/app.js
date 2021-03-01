@@ -10,16 +10,29 @@ app.use("/Styling", express.static("Styling")); //gets images and css
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.use("/", basicRoutes);
-app.use("/contact", basicRoutes);
-app.use("/register", basicRoutes);
-app.use("/login", basicRoutes);
+app.use(basicRoutes);
+app.use(registerRoute);
+app.use(logRoute);
 
-app.post("/register", registerRoute);
-app.use("/login", logRoute);
-
-app.get('/complete',registerRoute);
+app.delete('/logout', (req, res)=> {
+	req.logout();
+	res.redirect('/login');
+})
 //app.get('/register/complete',registerRoute)
+
+
+//Handling Errors
+app.use((req, res, next) =>{
+	var error = new Error("Page Not Found")
+	error.status = 404;
+	next(error);
+})
+
+app.use((error, req, res, next) =>{
+	res.status(error.status || 500);
+	res.send(error.message)
+})
+
 app.listen(3000, () => {
 	console.log(`Server started on port 3000`);
 });

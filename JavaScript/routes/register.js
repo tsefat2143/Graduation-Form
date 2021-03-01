@@ -8,7 +8,7 @@ require("dotenv").config();
 
 //Express Session
 router.use(session({
-	secret:process.env.SESSION_SECRET,
+	secret:process.env.RSESSION_SECRET,
 	cookie:{maxAge:60000},
 	resave: false,
 	saveUninitialized:false
@@ -19,30 +19,41 @@ router.use(flash());
 router.use(bodyParser.urlencoded({extended: false,}));
 router.use(bodyParser.json());
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
 	//information gathered from form by user input
 	let first = req.body.first;
 	let last = req.body.last;
 	let middle = req.body.middle;
 	let username = req.body.username;
-	let password =  bcrypt.hashSync(req.body.password,10);
+	let password =  req.body.password;
 	let email = req.body.email;
 	let gender = req.body.gender;
 	let dob = req.body.dob;	
 
-	let sql = `Insert Into graduation.graduates(firstName,lastName,middleName,username,passwords,email,gender,DOB) 
-	Values('${first}','${last}','${middle}','${username}','${password}','${email}','${gender}','${dob}');`;
+	try {
+		const salt = await bcrypt.genSalt();
+		const newPassword = await bcrypt.hash(password,salt);
+		console.log(salt);
+		console.log(newPassword);
 
-	database.query(sql, (error, result) => {
-		if (error) {
-			console.log(error);
-		}
-		else {
-			console.log("SQL Record Inserted");
-			req.flash('message', 'Success!!');
-			res.redirect('/complete');
-		}
-	});
+		let sql = `Insert Into graduation.graduates(firstName,lastName,middleName,username,passwords,email,gender,DOB) 
+		Values('${first}','${last}','${middle}','${username}','${newPassword}','${email}','${gender}','${dob}');`;
+	
+		database.query(sql, (error, result) => {
+			if (error) {
+				console.log('Sql error:' + error);
+			}
+			else {
+				console.log("SQL Record Inserted");
+				req.flash('message', 'Success!!');
+				res.redirect('/complete');
+			}
+		});
+
+	} catch (error) {
+		console.log('Could not hash password');
+	}
+
 });
 
 router.get('/complete',(req, res) => {
