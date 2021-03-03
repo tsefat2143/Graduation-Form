@@ -111,6 +111,7 @@ header {
 	background-color: rgba(0, 0, 205, 0.7);
 	border: none;
 	outline:none;
+	cursor: pointer;
 }
 
 .reset-button{
@@ -122,9 +123,44 @@ header {
 	background-color: rgba(255, 69, 0, 0.7);
 	border: none;
 	outline:none;
+	cursor: pointer;
 }
 
 .clickLink{
 	text-decoration:none;
 	color: rgb(192, 80, 80);
+}
+
+.grad-buttons{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+
+/* Home Page */
+.activate, .deactivate{
+	padding: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	border: none;
+	outline:none;
+	border-radius: 10px;
+	margin: 20px;
+	margin-top: 100px;
+	opacity: 0.9;
+}
+
+.activate{
+	background-color: #173F5F;
+	color:#20639B;
+}
+
+.deactivate{
+	background-color:#20639B;
+	color: #173F5F
+}
+
+.activate:hover, .deactivate:hover{
+	transition: all .5s ease-out;
+	transform:scale(1.1);
 }
