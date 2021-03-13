@@ -27,7 +27,9 @@ router.post("/login", (req, res) => {
         if(result.length !==0){
         try {
             if(await bcrypt.compare(password,result[0]['passwords'])){
-                res.send("Login Successful")
+                res.send(`Hello ${result[0]['firstName']} ${result[0]['lastName']}`)
+                req.session.user = result[0]['firstName'];
+                req.session.op= 1;
             }
             else{
                 res.send("Login Failed")
@@ -41,6 +43,10 @@ router.post("/login", (req, res) => {
         res.send('User does not exist');
     }
     }) 
+})
+
+router.get('/:username', (req,res) => {
+    
 })
 
 module.exports = router;

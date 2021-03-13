@@ -18,8 +18,6 @@ app.delete('/logout', (req, res)=> {
 	req.logout();
 	res.redirect('/login');
 })
-//app.get('/register/complete',registerRoute)
-
 
 //Handling Errors
 app.use((req, res, next) =>{

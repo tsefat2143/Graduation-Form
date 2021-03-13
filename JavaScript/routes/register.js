@@ -33,8 +33,6 @@ router.post("/register", async (req, res) => {
 	try {
 		const salt = await bcrypt.genSalt();
 		const newPassword = await bcrypt.hash(password,salt);
-		console.log(salt);
-		console.log(newPassword);
 
 		let sql = `Insert Into graduation.graduates(firstName,lastName,middleName,username,passwords,email,gender,DOB) 
 		Values('${first}','${last}','${middle}','${username}','${newPassword}','${email}','${gender}','${dob}');`;
