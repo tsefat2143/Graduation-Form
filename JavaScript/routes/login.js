@@ -34,7 +34,7 @@ router.post("/login", (req, res) => {
             else{
                 res.send("Login Failed")
             }
-            console.log(result[0]['passwords']);
+         // shows hashed password console.log(result[0]['passwords']);
         } catch (error) {
             
         }
@@ -45,8 +45,12 @@ router.post("/login", (req, res) => {
     }) 
 })
 
-router.get('/:username', (req,res) => {
-    
+router.get('/logout', (req,res,next) => {
+    if(req.session.user){
+        req.session.destroy(() => {
+            res.redirect('/')
+        })
+    }
 })
 
 module.exports = router;

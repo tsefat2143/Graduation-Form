@@ -14,23 +14,6 @@ app.use(basicRoutes);
 app.use(registerRoute);
 app.use(logRoute);
 
-app.delete('/logout', (req, res)=> {
-	req.logout();
-	res.redirect('/login');
-})
-
-//Handling Errors
-app.use((req, res, next) =>{
-	var error = new Error("Page Not Found")
-	error.status = 404;
-	next(error);
-})
-
-app.use((error, req, res, next) =>{
-	res.status(error.status || 500);
-	res.send(error.message)
-})
-
 app.listen(3000, () => {
 	console.log(`Server started on port 3000`);
 });
