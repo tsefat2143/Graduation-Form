@@ -7,7 +7,7 @@ require("dotenv").config();
 
 router.use(session({
     secret:process.env.LSESSION_SECRET,
-	cookie:{maxAge:60000},
+	cookie:{maxAge:10*60*1000}, //10 minutes
 	resave: false,
 	saveUninitialized:false
 }))
@@ -26,10 +26,14 @@ router.post("/login", (req, res) => {
 
         if(result.length !==0){
         try {
-            if(await bcrypt.compare(password,result[0]['passwords'])){
-                res.send(`Hello ${result[0]['firstName']} ${result[0]['lastName']}`)
+            if(await bcrypt.compare(password,result[0]['passwords'])){               
                 req.session.user = result[0]['firstName'];
                 req.session.op= 1;
+
+                let name =`Hello ${result[0]['firstName']} ${result[0]['lastName']}`;
+
+                res.redirect('/home')
+
             }
             else{
                 res.send("Login Failed")
@@ -43,14 +47,6 @@ router.post("/login", (req, res) => {
         res.send('User does not exist');
     }
     }) 
-})
-
-router.get('/logout', (req,res,next) => {
-    if(req.session.user){
-        req.session.destroy(() => {
-            res.redirect('/')
-        })
-    }
 })
 
 module.exports = router;

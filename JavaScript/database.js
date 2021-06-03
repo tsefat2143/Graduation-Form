@@ -12,7 +12,7 @@ let database = mysql.createConnection({
 
 database.connect((error) => {
 	if (error) console.log(`The error is ${error}`);
-	else console.log(`Mysql created`);
+	else console.log(`Mysql-Graduation created`);
 });
 
 module.exports = database;
