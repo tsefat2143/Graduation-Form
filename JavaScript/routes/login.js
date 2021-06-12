@@ -5,6 +5,8 @@ let session = require('express-session');
 let bcrypt = require('bcrypt')
 require("dotenv").config();
 
+let user = ''
+
 router.use(session({
     secret:process.env.LSESSION_SECRET,
 	cookie:{maxAge:10*60*1000}, //10 minutes
@@ -27,12 +29,10 @@ router.post("/login", (req, res) => {
         if(result.length !==0){
         try {
             if(await bcrypt.compare(password,result[0]['passwords'])){               
-                req.session.user = result[0]['firstName'];
+                user = result[0]['firstName'] + " " + result[0]['lastName'];
                 req.session.op= 1;
 
-                let name =`Hello ${result[0]['firstName']} ${result[0]['lastName']}`;
-
-                res.redirect('/home')
+                res.redirect('home')
 
             }
             else{
@@ -47,6 +47,10 @@ router.post("/login", (req, res) => {
         res.send('User does not exist');
     }
     }) 
+})
+
+router.get("/home", (req, res) => {
+    res.render('home',{name:user,status:false})
 })
 
 module.exports = router;

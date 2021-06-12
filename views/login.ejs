@@ -28,6 +28,12 @@
 		<form method="POST" action="/login">
 			<div class="form-app">
 				<h1>Log In To Your Account </h1>
+
+				<% if(message.length > 0) {%>
+					<div class='alert-success'>
+						<%=message %>
+					</div>
+				<% }%>
 				
 				<label for='username'>Username:</label>
 				<input type="text" id='username' class="form-text" placeholder="Enter Username" name="username" required/><br />

@@ -27,31 +27,40 @@
 			<div class="form-app">
 				<h1>Register</h1>
 
+				<% if(error.length > 0) {%>
+					<div class='alert-error'>
+						<%=error %>
+					</div>
+				<% }%>
+
 				<label for='firstName'>First Name:</label>
-				<input type="text" id='firstName' class="form-text" placeholder="Enter First Name" name="first" required/><br />
+				<input type="text" id='firstName' class="form-text" placeholder="Enter First Name" name="first" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				<label for='lastName'>Last Name:</label>
-				<input type="text" id='lastName' class="form-text" placeholder="Enter Last Name" name="last" required/><br />
+				<input type="text" id='lastName' class="form-text" placeholder="Enter Last Name" name="last" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				<label for='middleName'>Middle Name:</label>
-				<input type="text" id='middleName' class="form-text" placeholder="Enter Middle Name" name="middle"/><br />
+				<input type="text" id='middleName' class="form-text" placeholder="Enter Middle Name" name="middle" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				<label for='username'>Username:</label>
-				<input type="text" id='username' class="form-text" placeholder="Enter Username" name="username" required/><br />
+				<input type="text" id='username' class="form-text" placeholder="Enter Username" name="username" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				<label for='password'>Password:</label>
-				<input type="password" id='password' class="form-text" minlength="8" placeholder="Enter Password" name="password" required/><br />
+				<input type="password" id='password' class="form-text" minlength="8" placeholder="Enter Password" name="password" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
+
+				<label for='password2'>Re-Enter Password:</label>
+				<input type="password" id='password2' class="form-text" minlength="8" placeholder="Confirm Password" name="password2" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 
 				<label for='email'>Email:</label>
-				<input type="email" id='email' class="form-text" placeholder="Enter Email" name="email" required/><br />
+				<input type="email" id='email' class="form-text" placeholder="Enter Email" name="email" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				Gender:<br />
-				<input type="radio" class="form-text" name="gender" value="M" required/>Male<br />
-				<input type="radio" class="form-text" name="gender" value="F" required/>Female<br />
-				<input type="radio" class="form-text" name="gender" value="O" required/>Other<br />
+				<input type="radio" class="form-text" name="gender" value="M" />Male<br />
+				<input type="radio" class="form-text" name="gender" value="F" />Female<br />
+				<input type="radio" class="form-text" name="gender" value="O" />Other<br />
 				
 				<label for='date'>DOB:</label> 
-				<input type="date" id='date' class="form-text" name="dob" required /><br />
+				<input type="date" id='date' class="form-text" name="dob" /><br />
 				<input type="submit" value="Register" class="reg-button" id="button1" />
 				<input type="Reset" class="reset-button" id="button2" /><br />
 				<p id="end-text">

@@ -19,17 +19,29 @@ router.use(flash());
 router.use(bodyParser.urlencoded({extended: false,}));
 router.use(bodyParser.json());
 
+router.get('/register', (req, res) => {
+	res.render('register', {error:''})
+})
+
 router.post("/register", async (req, res) => {
 	//information gathered from form by user input
-	let first = req.body.first;
-	let last = req.body.last;
-	let middle = req.body.middle;
-	let username = req.body.username;
-	let password =  req.body.password;
-	let email = req.body.email;
-	let gender = req.body.gender;
-	let dob = req.body.dob;	
+	let {first, last, middle, username, password, password2, email, gender, dob} = req.body;
+	let errors = [];
 
+	if(password != password2){
+		errors.push('Passwords Do Not Match')
+	}
+	if(!middle){
+		errors.push('mid')
+	}
+
+	let checkEmail = 'Select email from graduation.graduates';
+	
+	if(errors.length > 0){
+		res.render('register', {error: errors})
+	}		
+
+	else{
 	try {
 		const salt = await bcrypt.genSalt();
 		const newPassword = await bcrypt.hash(password,salt);
@@ -43,20 +55,20 @@ router.post("/register", async (req, res) => {
 			}
 			else {
 				console.log("SQL Record Inserted");
+
 				req.flash('message', 'Success!!');
-				res.redirect('/complete');
+				res.redirect('/login');
 			}
 		});
 
 	} catch (error) {
 		console.log('Could not hash password');
 	}
-
+	}
 });
 
-router.get('/complete',(req, res) => {
-	res.render('complete', {message:req.flash('message')});
-
+router.get('/login',(req, res) => {
+	res.render('login', {message:req.flash('message')});
 });
 
 module.exports = router;

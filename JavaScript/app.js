@@ -16,12 +16,17 @@ app.use(registerRoute);
 app.use(logRoute);
 app.use(homeRoute);
 
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
+
 app.get('/logout', (req,res,next) => {
-    if(req.session.user){
-        req.session.destroy(() => {
-            res.redirect('/')
-        })
-    }
+    req.session.destroy(() => {
+        res.redirect('/')
+    })
 })
 
 app.listen(3000, () => {
