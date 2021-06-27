@@ -14,8 +14,6 @@ app.set('view engine', 'ejs');
 app.use(basicRoutes);
 app.use(registerRoute);
 app.use(logRoute);
-app.use(homeRoute);
-
 app.use(function(req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
@@ -25,7 +23,7 @@ app.use(function(req, res, next) {
 
 app.get('/logout', (req,res,next) => {
     req.session.destroy(() => {
-        res.redirect('/')
+        res.redirect('/login')
     })
 })
 

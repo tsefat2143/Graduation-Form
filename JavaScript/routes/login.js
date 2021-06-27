@@ -5,7 +5,9 @@ let session = require('express-session');
 let bcrypt = require('bcrypt')
 require("dotenv").config();
 
-let user = ''
+let fullName = '';
+let globalUsername = '';
+let globalStatus = ''
 
 router.use(session({
     secret:process.env.LSESSION_SECRET,
@@ -21,7 +23,11 @@ router.post("/login", (req, res) => {
 	let username = req.body.username;
     let password = req.body.password;
 
-    let sql = `Select firstName, lastName, username, passwords From graduation.graduates Where username = '${username}';`;
+    if(!username || !password){
+        res.render('login', {error:'Enter Username and Password'},message='')    
+    }
+
+    let sql = `Select firstName, lastName, username, passwords, gradStatus From graduation.graduates Where username = '${username}';`;
 
      database.query(sql,async(error,result) =>{
         if(error) throw error;
@@ -29,28 +35,46 @@ router.post("/login", (req, res) => {
         if(result.length !==0){
         try {
             if(await bcrypt.compare(password,result[0]['passwords'])){               
-                user = result[0]['firstName'] + " " + result[0]['lastName'];
-                req.session.op= 1;
-
+                fullName = result[0]['firstName'] + " " + result[0]['lastName'];
+                globalUsername = result[0]['username'];
+                globalStatus = result[0]['gradStatus'];
                 res.redirect('home')
-
             }
             else{
-                res.send("Login Failed")
+                res.render('login', {error:'Incorrect Password'},message='')            
             }
-         // shows hashed password console.log(result[0]['passwords']);
         } catch (error) {
-            
+            console.log(error);   
         }
     }
     else{
-        res.send('User does not exist');
-    }
-    }) 
+        res.render('login', {error:'User Does Not Exist'},message='')    
+    }}) 
 })
 
 router.get("/home", (req, res) => {
-    res.render('home',{name:user,status:false})
+    let setStatus = globalStatus === 'E' ? res.render('home',{name:fullName,status:'Approved'}):res.render('home',{name:fullName,status:'Cancelled'})
+})
+
+router.post("/home", (req, res) => {
+    let gradStatus = req.body.status;
+    console.log('gradStatus',gradStatus);
+    console.log('globalUsername',globalUsername);
+    console.log('_______________________')
+    if(gradStatus){
+        console.log('gradStatus',gradStatus);
+        console.log('globalUsername',globalUsername);
+        let sql = `Update graduates Set gradStatus='${gradStatus}' where username='${globalUsername}'`
+        console.log('gradStatus',gradStatus);
+        database.query(sql,(error,result) => {
+            if(error){
+                throw error
+            }
+            else{
+                let setStatus = gradStatus === 'E' ? res.render('home',{name:fullName,status:'Approved'}):res.render('home',{name:fullName,status:'Cancelled'})
+            }
+        })
+    }
 })
 
 module.exports = router;

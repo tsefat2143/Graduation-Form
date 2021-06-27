@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({extended: false,}));
 router.use(bodyParser.json());
 
 router.get('/home', (req, res) => {
-	let enroll = req.body.E;
+	let enroll = req.params.E;
 	let cancel = req.body.C;
 
 	if(enroll) console.log(enroll)
