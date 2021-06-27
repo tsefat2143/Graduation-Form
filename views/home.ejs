@@ -10,23 +10,34 @@
 <body class="body1">
     <header>
         <div class="container">
-            <a href="/">
                 <img src="../Styling/Images/graduationCap.jpg" alt="logo" />
-            </a>
         </div>
         <nav>
             <ul class="nav-links">
+                <li><a class="nav-link" href="/logout">Delete My Account</a></li>
                 <li><a class="nav-link" href="/logout">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <h1> Hello <%= name %> </h1>
-    <h2> Graduation Status <%= status %> </h2>
+    <div style='color:whitesmoke;text-align: center;margin-top: 30px;'>
+        <h1 style='font-size: 4rem;'> Hello <%= name %> </h1>
+        <h2 style='font-size: 2rem;'> Graduation Status: <%= status %> </h2>
+    </div>
 
-    <form class='grad-buttons'>
-        <input type="submit" value="Apply for Graduation" class="activate" id="activate" name='E'/>
-        <input type="submit" value="Cancel Gaduation" class="deactivate" id="deactivate" name='C'/>
+    <form class='grad-buttons' method="POST">
+        <div style="color: white;">
+            Select Status:<br />
+            <input type="radio" class="form-text" name="status" value="E" />Graduate<br />
+            <input type="radio" class="form-text" name="status" value="C" />Cancel<br />
+        </div>
+
+        <input type="submit" value="Select Status" class="activate" id="activate"/>
     </form>
 </body>
+<script type="text/javascript">
+//    function preventBack() { window.history.forward(); }
+//    setTimeout("preventBack()", 0);
+//    window.onunload = function () { null };
+</script>
 </html>
