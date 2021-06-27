@@ -4,6 +4,11 @@
 	box-sizing: border-box;
 }
 
+form h1{
+	text-transform: uppercase;
+	text-align: center;
+}
+
 .div-text,
 .mail-form {
 	background-color: rgba(0, 255, 255, 0.562);
@@ -107,7 +112,7 @@ header {
 	color: red;
 	font-size: 25px;
 	text-align: center;
-	margin: 20px;
+	margin: 10px;
 	border-radius: 10px;
 }
 
@@ -139,14 +144,13 @@ header {
 	text-decoration:none;
 	color: rgb(192, 80, 80);
 }
-
+/*
 .grad-buttons{
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
 }
 
-/* Home Page */
 .activate, .deactivate{
 	padding: 50px;
 	cursor: pointer;
@@ -174,3 +178,4 @@ header {
 	transition: all .5s ease-out;
 	transform:scale(1.1);
 }
+*/
