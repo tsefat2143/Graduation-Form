@@ -26,7 +26,7 @@ form h1{
 	padding: 10px;
 }
 
-header {
+nav {
 	display: flex;
 	padding: 5px;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -40,6 +40,26 @@ header {
 
 .container {
 	flex: 1;
+}
+
+.burger{
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	display:none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+	transition: all 0.3s ease;
+    background-color: white;
+	margin: 5px;
 }
 
 /* Background Image */
@@ -57,6 +77,10 @@ header {
 	list-style: none;
 }
 
+.nav-links li{
+	text-align: center;
+}
+
 .nav-link {
 	text-decoration: none;
 	font-family: sans-serif;
@@ -64,6 +88,7 @@ header {
 	color: white;
 	margin-left: 10px;
 	margin-right: 10px;
+	display:block;
 }
 
 .nav-link:hover{
@@ -87,7 +112,6 @@ header {
 	margin-left: 50px;
 	margin-right: 50px;
 	border-radius: 30px;
-/*	text-align: center;*/
 }
 
 .form-text {
@@ -144,38 +168,79 @@ header {
 	text-decoration:none;
 	color: rgb(192, 80, 80);
 }
-/*
-.grad-buttons{
-	display:flex;
-	flex-direction:row;
-	justify-content:center;
+
+@media (max-width: 688px) {
+	body{
+		overflow-x: hidden;
+	}
+
+	.nav-links{ 
+		flex-direction:column;
+		display:flex;
+		align-items: center;
+		width: 100%;
+		position: absolute;
+		height: 30vh;
+        top: 9vh;
+		background-color: rgba(0, 0, 0, 0.8);
+ 		transform: translateX(100%);
+        transition: transform 0.5s ease-in; 
+	}
+
+	.nav-links li{
+		padding: 20px;
+		opacity: 0;
+	}
+
+	.burger{
+		display: block
+	}	
 }
 
-.activate, .deactivate{
-	padding: 50px;
-	cursor: pointer;
-	font-size: 20px;
-	border: none;
-	outline:none;
-	border-radius: 10px;
-	margin: 20px;
-	margin-top: 100px;
-	opacity: 0.9;
-}
-
-.activate{
-	background-color: #173F5F;
-	color:white;
-}
-
-.deactivate{
-	background-color:#20639B;
-	color:white;
+.grad-form{
+	background-color: rgba(245, 245, 245, 0.336);
+	text-align:center;
+	height: 30vh;
+	max-width: 60%;
+	left: 50%;
 
 }
 
-.activate:hover, .deactivate:hover{
-	transition: all .5s ease-out;
-	transform:scale(1.1);
+.nav-active{
+    transform: translateX(-4.5%);
+	width: 100vh;
 }
-*/
+
+@keyframes navLinkFadeIn{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes navLinkFadeOut{
+    from{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    to{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.toggle .bar1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.toggle .bar2 {
+    opacity: 0;
+}
+
+.toggle .bar3 {
+    transform: rotate(+45deg) translate(-6px, -6px);
+}
