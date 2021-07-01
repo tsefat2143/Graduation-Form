@@ -71,4 +71,16 @@ router.post("/home", (req, res) => {
     }
 })
 
+router.get('/delete', (req,res) =>{
+    let sql=`Delete From Graduates Where username='${globalUsername}'`;
+    database.query(sql,(error,result) => {
+        if(error){
+            throw error
+        }
+        else{
+            res.render('login',{message:'Your Account Has Been Deleted'})
+        }
+    })
+})
+
 module.exports = router;

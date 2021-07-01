@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 
 app.get('/logout', (req,res,next) => {
     req.session.destroy(() => {
-        res.redirect('/login')
+        res.render('login',{message: "You Have Successfully Logged Out"})
     })
 })
 
