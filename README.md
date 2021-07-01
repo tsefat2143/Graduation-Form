@@ -14,9 +14,10 @@ Run npm install to download packages and run npm start to start on localhost 300
 # Login Authentication
 ## Register New User  
 <img src='/Styling/Images/rsucess.gif' width=450px height=500px title='Register' width='' alt='Register' />
+<img src='/Styling/Images/row.png' width=450px height=500px title='Register' width='' alt='Register' />
   
 ## Display Errors  
 <img src='/Styling/Images/rerrors.gif' width=450px height=500px title='Errors' width='' alt='Errors' />
   
  ## Users Can Sign In and Select Any Option  
- <img src='/Styling/Images/sign in and approve.gif' width=6500px height=500px title='Signin' width='' alt='Signin' />
+ <img src='/Styling/Images/sign in and approve.gif' width=650px height=500px title='Signin' width='' alt='Signin' />
