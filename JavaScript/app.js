@@ -10,7 +10,7 @@ app.use("/JavaScript", express.static('./JavaScript/')); //gets js file for hamb
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/', (req,res,next) => {
+app.get('/', (req,res) => {
     res.render('index')
 });
 app.use(registerRoute);
