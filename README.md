@@ -20,12 +20,12 @@ Run npm install to download packages and run npm start to start on localhost 300
 <img src='/Styling/Images/rerrors.gif' width=450px height=500px title='Errors' alt='Errors' />
   
 ## Users Can Sign In and Select Any Option  
-<img src='/Styling/Images/sign in and approve.gif' width=750px height=500px title='Signin' alt='Signin' />
+<img src='/Styling/Images/sign in and approve.gif' width=850px height=500px title='Signin' alt='Signin' />
 <img src='/Styling/Images/newRow.png' width=1108px height=49px title='Update' alt='Update' />
   
 ## Log Out
-<img src='/Styling/Images/log out.gif' width=750px height=500px title='log out' alt='log out' />
+<img src='/Styling/Images/log out.gif' width=850px height=500px title='log out' alt='log out' />
   
 ## Delete User
-<img src='/Styling/Images/delete.gif' width=750px height=500px title='delete' alt='delete' />
-<img src='/Styling/Images/user deleted.gif' width=750px height=500px title='user deleted' alt='user deleted' />
+<img src='/Styling/Images/delete.gif' width=850px height=500px title='delete' alt='delete' />
+<img src='/Styling/Images/user deleted.gif' width=850px height=500px title='user deleted' alt='user deleted' />
