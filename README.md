@@ -25,3 +25,7 @@ Run npm install to download packages and run npm start to start on localhost 300
   
 ## Log Out
 <img src='/Styling/Images/log out.gif' width=750px height=500px title='log out' alt='log out' />
+  
+## Delete User
+<img src='/Styling/Images/delete.gif' width=750px height=500px title='delete' alt='delete' />
+<img src='/Styling/Images/user deleted.gif' width=750px height=500px title='user deleted' alt='user deleted' />
