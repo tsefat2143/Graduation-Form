@@ -58,14 +58,8 @@ router.get("/home", (req, res) => {
 
 router.post("/home", (req, res) => {
     let gradStatus = req.body.status;
-    console.log('gradStatus',gradStatus);
-    console.log('globalUsername',globalUsername);
-    console.log('_______________________')
     if(gradStatus){
-        console.log('gradStatus',gradStatus);
-        console.log('globalUsername',globalUsername);
         let sql = `Update graduates Set gradStatus='${gradStatus}' where username='${globalUsername}'`
-        console.log('gradStatus',gradStatus);
         database.query(sql,(error,result) => {
             if(error){
                 throw error

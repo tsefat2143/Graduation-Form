@@ -1,17 +1,18 @@
 let express = require("express");
-let basicRoutes = require('./routes/api');
 let registerRoute = require('./routes/register');
 let logRoute = require('./routes/login');
-let homeRoute = require('./routes/home')
 
 let app = express();
 
 app.use("/Styling", express.static("Styling")); //gets images and css
+app.use("/JavaScript", express.static('./JavaScript/')); //gets js file for hamburger menu
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.use(basicRoutes);
+app.get('/', (req,res,next) => {
+    res.render('index')
+});
 app.use(registerRoute);
 app.use(logRoute);
 app.use(function(req, res, next) {
