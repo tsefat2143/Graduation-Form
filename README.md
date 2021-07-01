@@ -13,3 +13,6 @@ Run npm install to download packages and run npm start to start on localhost 300
   
 ## Register New User  
 <img src='/Styling/Images/rsucess.gif' width=450px height=500px title='Register' width='' alt='Register' />
+  
+## Display Errors  
+<img src='/Styling/Images/rerrors.gif' width=450px height=500px title='Errors' width='' alt='Errors' />
