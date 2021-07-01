@@ -24,4 +24,4 @@ Run npm install to download packages and run npm start to start on localhost 300
 <img src='/Styling/Images/newRow.png' width=1108px height=49px title='Update' alt='Update' />
   
 ## Log Out
-<img src='/Styling/Images/log out.gif' width=450px height=500px title='log out' alt='log out' />
+<img src='/Styling/Images/log out.gif' width=750px height=500px title='log out' alt='log out' />
