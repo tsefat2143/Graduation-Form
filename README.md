@@ -12,4 +12,4 @@
 Run npm install to download packages and run npm start to start on localhost 3000  
   
 ## Register New User  
-<video width="320" height="500" ><source src='/Styling/Images/rsucess.mp4' type='video/mp4'/>
+<img src='/Styling/Images/rsucess.mp4' title='Register' width='' alt='Register' />
