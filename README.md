@@ -12,4 +12,4 @@
 Run npm install to download packages and run npm start to start on localhost 3000  
   
 ## Register New User  
-<img src='/Styling/Images/rsucess.gif' width=300px height=600px title='Register' width='' alt='Register' />
+<img src='/Styling/Images/rsucess.gif' width=450px height=500px title='Register' width='' alt='Register' />
