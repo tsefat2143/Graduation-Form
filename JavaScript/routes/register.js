@@ -30,8 +30,8 @@ router.post("/register",  (req, res) => {
 			const salt = await bcrypt.genSalt();
 			const newPassword = await bcrypt.hash(password,salt);
 	
-			let sql = `Insert Into graduation.graduates(firstName,lastName,middleName,username,passwords,email,gender,DOB) 
-			Values('${first}','${last}','${middle}','${username}','${newPassword}','${email}','${gender}','${dob}');`;
+			let sql = `Insert Into graduation.graduates(firstName,lastName,middleName,username,passwords,email,gender,DOB,gradStatus) 
+			Values('${first}','${last}','${middle}','${username}','${newPassword}','${email}','${gender}','${dob}','C');`;
 			
 			database.query(sql, (error, result) => {
 				if (error) {
