@@ -108,19 +108,27 @@ nav {
 	background-color: rgba(0, 255, 255, 0.562);
 	font-size: 20px;
 	font-family: Arial;
-	margin: 10px;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin: 0 auto;
+	margin-top: 40px;
 	border-radius: 30px;
+	max-width: 100vh
 }
 
 .form-text {
 	margin: 5px;
+	width: 100%;
+	height: 1.5rem
+}
+
+.gender-text{
+	text-align: center;
 }
 
 #end-text{
+	text-align: center;
 	margin-top: 20px;
 }
+
 /* Flash Message */
 .alert-success{
 	background-color: rgb(174, 255, 174);
@@ -203,7 +211,7 @@ nav {
 	height: 30vh;
 	max-width: 60%;
 	left: 50%;
-
+	margin: 0 auto; /* centers form */ 
 }
 
 .nav-active{

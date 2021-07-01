@@ -38,7 +38,7 @@
 						<% }%>
 				<% }%>
 
-				<label for='firstName'>First Name:</label>
+				<label for='firstName'>First Name:</label><br>
 				<input type="text" id='firstName' class="form-text" placeholder="Enter First Name" name="first" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				<label for='lastName'>Last Name:</label>
@@ -60,9 +60,9 @@
 				<input type="email" id='email' class="form-text" placeholder="Enter Email" name="email" value="<%= typeof name != 'undefined' ? name : '' %>"/><br />
 				
 				Gender:<br />
-				<input type="radio" class="form-text" name="gender" value="M" />Male<br />
-				<input type="radio" class="form-text" name="gender" value="F" />Female<br />
-				<input type="radio" class="form-text" name="gender" value="O" />Other<br />
+				<input type="radio" class="gender-text" name="gender" value="M" />Male
+				<input type="radio" class="gender-text" name="gender" value="F" />Female
+				<input type="radio" class="gender-text" name="gender" value="O" />Other<br />
 				
 				<label for='date'>DOB:</label> 
 				<input type="date" id='date' class="form-text" name="dob" /><br />
