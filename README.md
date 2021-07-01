@@ -1,5 +1,5 @@
 # Graduation-Form
-##Uses Node.JS, Express.JS, and MYSQL  
+## Uses Node.JS, Express.JS, and MYSQL  
 .env file is needed for the variables:
   *MYSQL_HOST  
   *MYSQL_USER  
