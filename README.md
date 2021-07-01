@@ -11,4 +11,5 @@
 
 Run npm install to download packages and run npm start to start on localhost 3000  
   
-##Register  
+## Register New User  
+<img src='/Styling/Images/rsucess.mp4' title='Register' width='' alt='Register' />
