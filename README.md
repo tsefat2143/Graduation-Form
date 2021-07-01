@@ -9,4 +9,7 @@ Uses Node.JS, Express.JS, and MYSQL
   *RSESSION_SECRET  
   *LSESSION_SECRET  
 
-Run npm install to download packages and run npm start to start on localhost 3000
+Run npm install to download packages and run npm start to start on localhost 3000  
+  
+Register  
+
