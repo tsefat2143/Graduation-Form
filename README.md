@@ -20,4 +20,5 @@ Run npm install to download packages and run npm start to start on localhost 300
 <img src='/Styling/Images/rerrors.gif' width=450px height=500px title='Errors' width='' alt='Errors' />
   
  ## Users Can Sign In and Select Any Option  
- <img src='/Styling/Images/sign in and approve.gif' width=650px height=500px title='Signin' width='' alt='Signin' />
+ <img src='/Styling/Images/sign in and approve.gif' width=750px height=500px title='Signin' width='' alt='Signin' />
+<img src='/Styling/Images/newrow.png' width=1108px height=49px title='Register' width='' alt='Register' />
