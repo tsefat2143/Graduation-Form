@@ -9,8 +9,7 @@ form h1{
 	text-align: center;
 }
 
-.div-text,
-.mail-form {
+.div-text {
 	background-color: rgba(0, 255, 255, 0.562);
 	margin: 10px;
 	margin-left: 50px;
@@ -111,7 +110,7 @@ nav {
 	margin: 0 auto;
 	margin-top: 40px;
 	border-radius: 30px;
-	max-width: 100vh
+	max-width: 100vh;
 }
 
 .form-text {
@@ -175,6 +174,14 @@ nav {
 .clickLink{
 	text-decoration:none;
 	color: rgb(192, 80, 80);
+}
+
+.form-app, .grad-form, .div-text{
+	animation: fadein 3s;
+	-moz-animation: fadein 3s; /* Firefox < 16 */
+	-ms-animation: fadein 3s; /* Internet Explorer */
+	-o-animation: fadein 3s; /* Opera < 12.1 */
+	animation: fadein 3s;  
 }
 
 @media (max-width: 688px) {
@@ -251,4 +258,63 @@ nav {
 
 .toggle .bar3 {
     transform: rotate(+45deg) translate(-6px, -6px);
+}
+
+@keyframes fadein {
+   0% {
+	   opacity: 0.2;
+	   transform: translateY(-20px);
+	}
+   100% {
+	   opacity: 1;
+       transform: translateY(0);
+	}
+}
+  
+/* Firefox < 16 */
+ @-moz-keyframes fadein {
+	0% {
+		opacity: 0.2;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+  
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+	0% {
+		opacity: 0.2;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+  
+/* Internet Explorer */
+@-ms-keyframes fadein {
+	0% {
+		opacity: 0.2;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+  
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+	0% {
+		opacity: 0.2;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
